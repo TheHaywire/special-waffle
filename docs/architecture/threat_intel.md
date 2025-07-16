@@ -10,11 +10,11 @@ Aggregates, correlates, and analyzes threat data from multiple sources, providin
 **Architecture Diagram:**
 ```mermaid
 flowchart TD
-    A[Threat Feeds (OSINT, CTI, Dark Web)] --> B[Ingestion Engine]
-    B --> C[Normalization & Enrichment]
+    A[Threat Feeds OSINT CTI Dark Web] --> B[Ingestion Engine]
+    B --> C[Normalization Enrichment]
     C --> D[Correlation Engine]
-    D -->|Indicators/Alerts| E[Analyst Dashboard]
-    D -->|Export| F[SIEM/SOAR]
+    D -->|Indicators Alerts| E[Analyst Dashboard]
+    D -->|Export| F[SIEM SOAR]
     E -->|Feedback| D
     D -->|Storage| G[Threat Intel DB]
 ```

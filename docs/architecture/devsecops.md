@@ -37,17 +37,17 @@ Detect and automatically remediate misconfigurations, drift, or attacks in cloud
 **Architecture Diagram:**
 ```mermaid
 flowchart TD
-    A[Cloud/Infra Resources] -->|Monitor| B[Policy Engine (OPA/Cloud Custodian)]
-    B -->|Detect Drift/Violation| C[Automation Orchestrator (Ansible/Lambda)]
+    A[Cloud Infra Resources] -->|Monitor| B[Policy Engine OPA Cloud Custodian]
+    B -->|Detect Drift Violation| C[Automation Orchestrator Ansible Lambda]
     C -->|Remediation Action| A
     B -->|Alert| D[Security Team]
-    C -->|Logs| E[SIEM/Log Management]
+    C -->|Logs| E[SIEM Log Management]
 ```
 
 **Key Components:**
 - Policy Engine: OPA (Open Policy Agent), Cloud Custodian, AWS Config.
 - Automation Orchestrator: Ansible, AWS Lambda, Azure Functions, custom scripts.
-- SIEM/Log Management: Centralized event and remediation logging.
+- SIEM Log Management: Centralized event and remediation logging.
 - Security Team: Receives alerts for manual review if needed.
 
 ---
@@ -60,12 +60,12 @@ Automate generation, validation, and monitoring of Software Bill of Materials (S
 **Architecture Diagram:**
 ```mermaid
 flowchart TD
-    A[Source Code/Dependencies] -->|SBOM Generation| B[SBOM Tool (Syft/Trivy)]
+    A[Source Code Dependencies] -->|SBOM Generation| B[SBOM Tool Syft Trivy]
     B -->|SBOM File| C[SBOM Repository]
     C -->|Validation| D[Policy Engine]
     D -->|Alerts| E[Security Team]
-    D -->|Pass/Fail| F[CI/CD Pipeline]
-    B -->|Vuln Scan| G[Vulnerability DB (OSV/NVD)]
+    D -->|Pass Fail| F[CI CD Pipeline]
+    B -->|Vuln Scan| G[Vulnerability DB OSV NVD]
     G -->|Findings| D
 ```
 

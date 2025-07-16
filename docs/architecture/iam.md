@@ -10,10 +10,10 @@ A decentralized identity management system leverages blockchain to provide self-
 **Architecture Diagram:**
 ```mermaid
 flowchart TD
-    A[User] -->|Register/Claim| B[Identity Wallet]
-    B -->|Credential Request| C[Issuer (Org/Gov)]
+    A[User] -->|Register Claim| B[Identity Wallet]
+    B -->|Credential Request| C[Issuer Org Gov]
     C -->|Signed Credential| B
-    B -->|Present Credential| D[Verifier (Service/App)]
+    B -->|Present Credential| D[Verifier Service App]
     D -->|Verify| E[Blockchain Network]
     E -->|Validation| D
 ```

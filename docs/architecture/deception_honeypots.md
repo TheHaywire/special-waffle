@@ -35,18 +35,18 @@ Deploys a range of honeypots (SSH, web, ICS, DNS, etc.) for research, monitoring
 ```mermaid
 flowchart TD
     A[Attacker] -->|Network Traffic| B[Honeypot Suite Host]
-    B -->|Traffic| C{Honeypot Containers}
-    C --> D[SSH/Telnet (Cowrie)]
-    C --> E[Web (HoneyPress, Gate)]
-    C --> F[ICS/SCADA (Conpot)]
-    C --> G[DNS (Udpot)]
-    C --> H[FTP/MySQL (Dionaea)]
+    B -->|Traffic| C[Honeypot Containers]
+    C --> D[SSH Telnet Cowrie]
+    C --> E[Web HoneyPress Gate]
+    C --> F[ICS SCADA Conpot]
+    C --> G[DNS Udpot]
+    C --> H[FTP MySQL Dionaea]
     D -->|Logs| I[Central Log Collector]
     E -->|Logs| I
     F -->|Logs| I
     G -->|Logs| I
     H -->|Logs| I
-    I -->|Analysis| J[Dashboard/Threat Intel]
+    I -->|Analysis| J[Dashboard Threat Intel]
 ```
 
 **Key Components:**
