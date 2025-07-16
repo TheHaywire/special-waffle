@@ -10,7 +10,7 @@ Automates policy management, risk assessment, and compliance reporting for regul
 **Architecture Diagram:**
 ```mermaid
 flowchart TD
-    A[Policy/Regulation] --> B[GRC Engine]
+    A[Policy Regulation] --> B[GRC Engine]
     B -->|Assessments| C[Risk Dashboard]
     B -->|Audit Events| D[Audit Log]
     C -->|Reports| E[Compliance Officer]
@@ -36,7 +36,7 @@ flowchart TD
     A[Compliance Event] --> B[Log Collector]
     B -->|Event| C[Blockchain Node]
     C -->|Consensus| D[Blockchain Network]
-    D -->|Immutable Log| E[Auditor/Compliance]
+    D -->|Immutable Log| E[Auditor Compliance]
     D -->|Query| F[GRC Dashboard]
 ```
 
@@ -44,5 +44,5 @@ flowchart TD
 - Log Collector: Gathers compliance and security events.
 - Blockchain Node: Writes events to the blockchain (e.g., [Hyperledger Fabric](https://www.hyperledger.org/use/fabric)).
 - Blockchain Network: Distributed ledger for consensus and storage.
-- Auditor/Compliance: Reviews immutable logs for investigations and audits.
+- Auditor Compliance: Reviews immutable logs for investigations and audits.
 - GRC Dashboard: Visualizes compliance status and audit trails. 

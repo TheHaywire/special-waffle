@@ -92,12 +92,12 @@ This guide provides actionable InfoSec recommendations for critical infrastructu
 
 ```mermaid
 flowchart TD
-    A[Operator/Engineer] -->|Access| B[Identity & Access Management (IAM)]
-    B -->|Provisioning| C[OT/ICS Systems]
-    C -->|Network| D[Network Segmentation/Firewalls]
-    D -->|Traffic| E[Network IDS/Anomaly Detection]
+    A[Operator Engineer] -->|Access| B[Identity Access Management IAM]
+    B -->|Provisioning| C[OT ICS Systems]
+    C -->|Network| D[Network Segmentation Firewalls]
+    D -->|Traffic| E[Network IDS Anomaly Detection]
     C -->|Deception| F[Honeypots]
-    C -->|Logs| G[SIEM/Log Management]
+    C -->|Logs| G[SIEM Log Management]
     E -->|Alerts| H[Incident Response]
     F -->|Threat Data| I[Threat Intelligence]
     H -->|Remediation| C
@@ -108,7 +108,7 @@ flowchart TD
 
 **Key Components:**
 - IAM: Keycloak, Authelia
-- OT/ICS Systems: Industrial control systems
+- OT ICS Systems: Industrial control systems
 - Network Segmentation: Firewalls, VLANs, unidirectional gateways
 - Network IDS: Zeek, Suricata, Snort
 - Honeypots: Conpot, prickly-pete

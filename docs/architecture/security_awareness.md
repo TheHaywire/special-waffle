@@ -13,14 +13,14 @@ flowchart TD
     A[Admin] -->|Create Module| B[Training Platform]
     B -->|Assign| C[User]
     C -->|Complete Module| B
-    B -->|Progress/Results| D[Reporting Dashboard]
-    D -->|Export| E[Management/Compliance]
+    B -->|Progress Results| D[Reporting Dashboard]
+    D -->|Export| E[Management Compliance]
 ```
 
 **Key Components:**
 - Training Platform: Delivers modules, tracks progress (e.g., [Open Source Security Awareness Platform](https://github.com/toniblyx/security-tools/blob/master/README.md#security-awareness-training)).
 - Reporting Dashboard: Visualizes completion, risk, and trends.
-- Management/Compliance: Consumes reports for oversight and audits.
+- Management Compliance: Consumes reports for oversight and audits.
 - User: Employees or test users.
 
 ---
@@ -33,10 +33,10 @@ Sends simulated phishing emails to users, tracks responses, and provides metrics
 **Architecture Diagram:**
 ```mermaid
 flowchart TD
-    A[Admin/Security Team] -->|Create Campaign| B[Phishing Platform]
+    A[Admin Security Team] -->|Create Campaign| B[Phishing Platform]
     B -->|Send Emails| C[User Targets]
-    C -->|Clicks/Responses| B
-    B -->|Metrics/Reports| D[Dashboard]
+    C -->|Clicks Responses| B
+    B -->|Metrics Reports| D[Dashboard]
     D -->|Awareness Training| C
 ```
 

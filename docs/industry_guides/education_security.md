@@ -90,17 +90,17 @@ This guide provides actionable InfoSec recommendations for educational instituti
 
 ```mermaid
 flowchart TD
-    A[Student/Staff] -->|Access| B[Identity & Access Management (IAM)]
-    B -->|Provisioning| C[Learning Management System (LMS)]
+    A[Student Staff] -->|Access| B[Identity Access Management IAM]
+    B -->|Provisioning| C[Learning Management System LMS]
     C -->|Training| D[Security Awareness Portal]
     C -->|Phishing Test| E[Phishing Simulation]
-    C -->|Logs| F[SIEM/Log Management]
+    C -->|Logs| F[SIEM Log Management]
     C -->|Data| G[Student Records]
     G -->|Analytics| H[Privacy Analytics]
     F -->|Alerts| I[Incident Response]
     I -->|Remediation| C
     H -->|Compliance Evidence| J[Compliance Automation]
-    J -->|Reports| K[Auditors/Regulators]
+    J -->|Reports| K[Auditors Regulators]
 ```
 
 **Key Components:**

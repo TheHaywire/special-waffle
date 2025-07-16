@@ -10,8 +10,8 @@ Profiles software, networks, and attacks using ML and graph theory for attributi
 **Architecture Diagram:**
 ```mermaid
 flowchart TD
-    A[IoT/Software/Network] --> B[DNA Profiler Engine]
-    B -->|Profile/Signature| C[Threat Analysis]
+    A[IoT Software Network] --> B[DNA Profiler Engine]
+    B -->|Profile Signature| C[Threat Analysis]
     C -->|Attribution| D[Analyst]
     B -->|Data| E[ML Model]
     E -->|Insights| C
@@ -33,8 +33,8 @@ Implements and tests post-quantum cryptography algorithms to secure data against
 **Architecture Diagram:**
 ```mermaid
 flowchart TD
-    A[Data/Application] --> B[Quantum-Resistant Crypto Engine]
-    B -->|Encrypted Data| C[Storage/Transmission]
+    A[Data Application] --> B[Quantum-Resistant Crypto Engine]
+    B -->|Encrypted Data| C[Storage Transmission]
     C -->|Decryption| D[Authorized User]
 ```
 

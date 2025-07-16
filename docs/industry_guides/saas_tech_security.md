@@ -94,21 +94,21 @@ This guide provides actionable InfoSec recommendations for SaaS and technology c
 
 ```mermaid
 flowchart TD
-    A[Developer/Engineer] -->|Code Commit| B[CI/CD Pipeline]
+    A[Developer Engineer] -->|Code Commit| B[CI CD Pipeline]
     B -->|SBOM| C[SBOM Dashboard]
     B -->|Deploy| D[Cloud Infrastructure]
-    D -->|Audit| E[CSPM/Cloud Audit]
+    D -->|Audit| E[CSPM Cloud Audit]
     D -->|API Traffic| F[API Security]
-    D -->|Logs| G[SIEM/Log Management]
-    D -->|Access| H[Identity & Access Management (IAM)]
+    D -->|Logs| G[SIEM Log Management]
+    D -->|Access| H[Identity Access Management IAM]
     G -->|Alerts| I[Incident Response]
     I -->|Remediation| D
     G -->|Compliance Evidence| J[Compliance Automation]
-    J -->|Reports| K[Auditors/Regulators]
+    J -->|Reports| K[Auditors Regulators]
 ```
 
 **Key Components:**
-- CI/CD: GitHub Actions, GitLab CI, Jenkins
+- CI CD: GitHub Actions, GitLab CI, Jenkins
 - SBOM: Syft, Trivy, CycloneDX
 - Cloud Audit: Prowler, Cloud Custodian
 - API Security: OWASP ZAP, 42Crunch, APISec
