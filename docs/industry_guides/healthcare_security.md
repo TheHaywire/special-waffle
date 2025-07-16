@@ -92,16 +92,16 @@ This guide provides actionable InfoSec recommendations for the healthcare indust
 
 ```mermaid
 flowchart TD
-    A[Clinician/Staff] -->|Access| B[Identity & Access Management (IAM)]
+    A[Clinician Staff] -->|Access| B[Identity Access Management IAM]
     B -->|Provisioning| C[EHR Systems]
-    C -->|PHI Access| D[Audit Logging/Immutable Logs]
-    C -->|Endpoint| E[EDR/Endpoint Security]
-    C -->|Logs| F[SIEM/Log Management]
+    C -->|PHI Access| D[Audit Logging Immutable Logs]
+    C -->|Endpoint| E[EDR Endpoint Security]
+    C -->|Logs| F[SIEM Log Management]
     D -->|Review| G[Privacy Analytics]
     F -->|Alerts| H[Incident Response]
     H -->|Remediation| C
     G -->|Compliance Evidence| I[Compliance Automation]
-    I -->|Reports| J[Auditors/Regulators]
+    I -->|Reports| J[Auditors Regulators]
     C -->|Encryption| K[Data Encryption]
 ```
 

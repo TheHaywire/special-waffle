@@ -85,14 +85,14 @@ This guide provides actionable InfoSec recommendations for government organizati
 
 ```mermaid
 flowchart TD
-    A[Employee/Official] -->|Access| B[Identity & Access Management (IAM)]
-    B -->|Provisioning| C[Gov Apps/Systems]
-    C -->|Logs| D[SIEM/Log Management]
+    A[Employee Official] -->|Access| B[Identity Access Management IAM]
+    B -->|Provisioning| C[Gov Apps Systems]
+    C -->|Logs| D[SIEM Log Management]
     C -->|Comms| E[Secure Communications]
     D -->|Alerts| F[Incident Response]
     F -->|Remediation| C
     D -->|Compliance Evidence| G[Compliance Automation]
-    G -->|Reports| H[Auditors/Regulators]
+    G -->|Reports| H[Auditors Regulators]
     C -->|Encryption| I[Data Encryption]
 ```
 
