@@ -90,9 +90,9 @@ This guide provides actionable InfoSec recommendations for the finance industry,
 
 ```mermaid
 flowchart TD
-    A[User/Employee] -->|Access| B[Identity & Access Management (IAM)]
+    A[User Employee] -->|Access| B[Identity Access Management IAM]
     B -->|Provisioning| C[Application Servers]
-    C -->|Logs| D[SIEM/Log Management]
+    C -->|Logs| D[SIEM Log Management]
     C -->|Data| E[Database]
     C -->|File Transfer| F[Secure File Transfer]
     D -->|Alerts| G[Security Operations]
@@ -100,7 +100,7 @@ flowchart TD
     C -->|Vuln Scan| H[Vulnerability Management]
     H -->|Findings| G
     G -->|Compliance Evidence| I[Compliance Automation]
-    I -->|Reports| J[Auditors/Regulators]
+    I -->|Reports| J[Auditors Regulators]
     E -->|Encryption| K[Data Encryption]
 ```
 
