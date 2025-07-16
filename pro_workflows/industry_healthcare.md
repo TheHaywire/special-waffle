@@ -196,10 +196,177 @@ flowchart TD
 **Workflow:**
 ```mermaid
 flowchart TD
-    A[Medical Devices] --> B[Device Scanner (OpenVAS/Nessus)]
-    B -->|Scan| C[Vulnerability Dashboard]
-    C -->|High Risk| D[Patch/Isolate]
-    C -->|Low Risk| E[Schedule Patch]
+    %% Medical Device Inventory
+    subgraph "Medical Device Inventory"
+        A1[Imaging Devices - MRI/CT/X-Ray/Ultrasound]
+        A2[Patient Monitors - ICU/OR/General Ward]
+        A3[Infusion Pumps - IV/Medication Delivery]
+        A4[Lab Equipment - Analyzers/Testing Devices]
+        A5[Networked Devices - PACS/RIS/LIS Systems]
+        A6[Legacy Devices - Older/Unsupported Equipment]
+    end
+    
+    %% Device Discovery & Classification
+    subgraph "Device Discovery & Classification"
+        B1[Network Discovery - Active/Passive Scanning]
+        B2[Device Identification - Manufacturer/Model/Version]
+        B3[Risk Classification - Critical/High/Medium/Low]
+        B4[Patient Safety Impact - Direct/Indirect/None]
+        B5[Network Connectivity - Connected/Isolated/Air-gapped]
+        B6[Regulatory Status - FDA Approved/Investigational]
+    end
+    
+    %% Vulnerability Assessment
+    subgraph "Vulnerability Assessment"
+        C1[Automated Scanning - OpenVAS/Nessus/Qualys]
+        C2[Manual Assessment - Penetration Testing]
+        C3[Configuration Review - Security Settings/Baselines]
+        C4[Firmware Analysis - Version/Update Status]
+        C5[Network Analysis - Protocols/Ports/Services]
+        C6[Physical Security - Access Control/Environmental]
+    end
+    
+    %% Risk Assessment & Prioritization
+    subgraph "Risk Assessment & Prioritization"
+        D1[Patient Safety Risk - Direct/Indirect Impact]
+        D2[Clinical Impact - Care Disruption/Data Loss]
+        D3[Regulatory Risk - FDA/State/Industry Standards]
+        D4[Business Impact - Operations/Financial/Liability]
+        D5[Exploitability - Attack Vector/Complexity]
+        D6[Remediation Complexity - Patch/Configuration/Replacement]
+    end
+    
+    %% Patch Management & Remediation
+    subgraph "Patch Management & Remediation"
+        E1[Vendor Coordination - Manufacturer/Support]
+        E2[Testing Environment - Validation/Verification]
+        E3[Clinical Validation - Safety/Effectiveness Testing]
+        E4[Deployment Planning - Maintenance Windows/Backup]
+        E5[Rollback Procedures - Emergency/Contingency Plans]
+        E6[Documentation - Changes/Approvals/Validation]
+    end
+    
+    %% Network Segmentation & Isolation
+    subgraph "Network Segmentation & Isolation"
+        F1[VLAN Segmentation - Device/Clinical/Business Networks]
+        F2[Firewall Rules - Access Control/Communication]
+        F3[Intrusion Detection - Network/Device Monitoring]
+        F4[Access Control - Authentication/Authorization]
+        F5[Monitoring - Traffic/Behavior/Anomaly Detection]
+        F6[Incident Response - Device-specific Playbooks]
+    end
+    
+    %% Compliance & Governance
+    subgraph "Compliance & Governance"
+        G1[FDA Requirements - Cybersecurity/Medical Device Security]
+        G2[HIPAA Compliance - PHI Protection/Privacy]
+        G3[Industry Standards - IEC 80001/ISO 27001]
+        G4[Internal Policies - Security/Clinical/Operational]
+        G5[Audit Preparation - Evidence/Reports/Documentation]
+        G6[Training & Awareness - Clinical/Technical Staff]
+    end
+    
+    %% Monitoring & Alerting
+    subgraph "Monitoring & Alerting"
+        H1[Real-time Monitoring - Device Status/Performance]
+        H2[Security Monitoring - Access/Changes/Anomalies]
+        H3[Clinical Monitoring - Patient Safety/Device Function]
+        H4[Network Monitoring - Traffic/Connectivity/Performance]
+        H5[Alert Management - Prioritization/Escalation]
+        H6[Reporting - Status/Compliance/Performance Metrics]
+    end
+    
+    %% Integration & Automation
+    subgraph "Integration & Automation"
+        I1[EHR Integration - Device Data/Patient Information]
+        I2[Security Tool Integration - SIEM/EDR/GRC]
+        I3[Clinical System Integration - PACS/RIS/LIS]
+        I4[Network Integration - Switches/Routers/Firewalls]
+        I5[Vendor Integration - Support/Updates/Patches]
+        I6[Third-party Integration - Monitoring/Management Tools]
+    end
+    
+    %% Incident Response & Recovery
+    subgraph "Incident Response & Recovery"
+        J1[Device Incident Response - Compromise/Malfunction]
+        J2[Clinical Incident Response - Patient Safety Issues]
+        J3[Network Incident Response - Connectivity/Security]
+        J4[Vendor Incident Response - Support/Coordination]
+        J5[Regulatory Incident Response - Reporting/Notification]
+        J6[Business Continuity - Clinical Operations/Patient Care]
+    end
+    
+    %% Data Flow Connections
+    A1 --> B1
+    A2 --> B1
+    A3 --> B1
+    A4 --> B2
+    A5 --> B2
+    A6 --> B2
+    
+    B1 --> C1
+    B2 --> C1
+    B3 --> C1
+    B4 --> C2
+    C5 --> C2
+    C6 --> C2
+    
+    C1 --> D1
+    C2 --> D1
+    C3 --> D1
+    C4 --> D2
+    D5 --> D2
+    D6 --> D2
+    
+    D1 --> E1
+    D2 --> E1
+    D3 --> E1
+    D4 --> E2
+    E5 --> E2
+    E6 --> E2
+    
+    E1 --> F1
+    E2 --> F1
+    E3 --> F1
+    E4 --> F2
+    F5 --> F2
+    F6 --> F2
+    
+    F1 --> G1
+    F2 --> G1
+    F3 --> G1
+    F4 --> G2
+    G5 --> G2
+    G6 --> G2
+    
+    G1 --> H1
+    G2 --> H1
+    G3 --> H1
+    G4 --> H2
+    H5 --> H2
+    H6 --> H2
+    
+    H1 --> I1
+    H2 --> I1
+    H3 --> I1
+    H4 --> I2
+    I5 --> I2
+    I6 --> I2
+    
+    I1 --> J1
+    I2 --> J1
+    I3 --> J1
+    I4 --> J2
+    J5 --> J2
+    J6 --> J2
+    
+    %% Feedback Loops
+    J1 --> B1
+    J2 --> C1
+    J3 --> D1
+    J4 --> E1
+    J5 --> F1
+    J6 --> G1
 ```
 **Tools:** OpenVAS, Nessus, Wazuh, custom medical device scripts
 
@@ -219,10 +386,177 @@ flowchart TD
 **Workflow:**
 ```mermaid
 flowchart TD
-    A[Access Events] --> B[SIEM (ELK/Wazuh)]
-    B -->|Analyze| C[Access Patterns]
-    C -->|Anomaly| D[Alert Security Team]
-    C -->|Normal| E[Log for Audit]
+    %% Patient Data Access Sources
+    subgraph "Patient Data Access Sources"
+        A1[EHR Systems - Epic/Cerner/Allscripts Access]
+        A2[Clinical Systems - Lab/Pharmacy/Radiology]
+        A3[Administrative Systems - Billing/Scheduling/HR]
+        A4[Patient Portals - Online/Mobile Access]
+        A5[Research Systems - Clinical Trials/Studies]
+        A6[Third-party Systems - Vendors/Partners/Cloud]
+    end
+    
+    %% Access Event Collection
+    subgraph "Access Event Collection"
+        B1[Authentication Events - Login/Logout/MFA]
+        B2[Authorization Events - Permission/Role Changes]
+        B3[Data Access Events - View/Edit/Export/Print]
+        B4[System Events - Configuration/Administrative Changes]
+        B5[Network Events - Connection/Transfer/Communication]
+        B6[Physical Events - Location/Device/Time Access]
+    end
+    
+    %% Data Processing & Analysis
+    subgraph "Data Processing & Analysis"
+        C1[Log Aggregation - SIEM/ELK Stack/Splunk]
+        C2[Event Correlation - Cross-system/Cross-user Analysis]
+        C3[Pattern Recognition - Behavioral/Statistical Analysis]
+        C4[Anomaly Detection - ML/AI/Threshold-based Detection]
+        C5[Risk Scoring - User/System/Data Risk Assessment]
+        C6[Context Enrichment - User/Device/Location Context]
+    end
+    
+    %% Access Pattern Analysis
+    subgraph "Access Pattern Analysis"
+        D1[User Behavior Analysis - Normal/Abnormal Patterns]
+        D2[Data Access Patterns - Frequency/Volume/Timing]
+        D3[Geographic Patterns - Location/Time Zone Analysis]
+        D4[Device Patterns - Device/Network/Application Usage]
+        D5[Clinical Patterns - Patient/Department/Specialty Access]
+        D6[Temporal Patterns - Time/Date/Shift Analysis]
+    end
+    
+    %% Risk Assessment & Alerting
+    subgraph "Risk Assessment & Alerting"
+        E1[Risk Scoring - Low/Medium/High/Critical Risk]
+        E2[Alert Generation - Real-time/Batch Alerting]
+        E3[Alert Prioritization - Severity/Impact/Urgency]
+        E4[False Positive Reduction - ML/Manual Tuning]
+        E5[Escalation Rules - Automated/Manual Escalation]
+        E6[Notification Management - Email/SMS/App Alerts]
+    end
+    
+    %% Investigation & Response
+    subgraph "Investigation & Response"
+        F1[Case Management - Investigation Workflow/Tracking]
+        F2[Evidence Collection - Logs/Data/Artifacts]
+        F3[Forensic Analysis - Digital/Network Forensics]
+        F4[User Interviews - HR/Management/Subject Interviews]
+        F5[Corrective Actions - Account/System/Process Changes]
+        F6[Documentation - Investigation/Resolution/Follow-up]
+    end
+    
+    %% Compliance & Audit
+    subgraph "Compliance & Audit"
+        G1[HIPAA Compliance - Privacy/Security Rule Requirements]
+        G2[Audit Trail - Complete/Immutable/Verifiable Logs]
+        G3[Report Generation - Compliance/Audit/Executive Reports]
+        G4[Evidence Preservation - Legal/Regulatory Requirements]
+        G5[Training & Awareness - Staff/Management Training]
+        G6[Policy Enforcement - Access/Data/Privacy Policies]
+    end
+    
+    %% Monitoring & Analytics
+    subgraph "Monitoring & Analytics"
+        H1[Real-time Monitoring - Live/Continuous Monitoring]
+        H2[Performance Metrics - Detection/Response/Accuracy]
+        H3[Trend Analysis - Access/Incident/Risk Trends]
+        H4[Benchmarking - Industry/Peer/Historical Comparison]
+        H5[Predictive Analytics - Risk/Incident Forecasting]
+        H6[Continuous Improvement - Process/System Optimization]
+    end
+    
+    %% Integration & Automation
+    subgraph "Integration & Automation"
+        I1[EHR Integration - Epic/Cerner/Allscripts APIs]
+        I2[Security Tool Integration - SIEM/EDR/GRC Tools]
+        I3[Identity Integration - IAM/SSO/Active Directory]
+        I4[Network Integration - Firewall/IDS/Proxy Logs]
+        I5[Business Integration - HR/Finance/Operations Systems]
+        I6[Third-party Integration - Vendors/Partners/Services]
+    end
+    
+    %% Governance & Oversight
+    subgraph "Governance & Oversight"
+        J1[Policy Management - Access/Privacy/Security Policies]
+        J2[Role Management - Responsibilities/Accountabilities]
+        J3[Approval Workflows - Access/Change/Exception Approval]
+        J4[Training & Awareness - Compliance/Security Training]
+        J5[Audit Support - Internal/External Audit Support]
+        J6[Risk Management - Access/Risk Assessment/Management]
+    end
+    
+    %% Data Flow Connections
+    A1 --> B1
+    A2 --> B1
+    A3 --> B1
+    A4 --> B2
+    A5 --> B2
+    A6 --> B2
+    
+    B1 --> C1
+    B2 --> C1
+    B3 --> C1
+    B4 --> C2
+    C5 --> C2
+    C6 --> C2
+    
+    C1 --> D1
+    C2 --> D1
+    C3 --> D1
+    C4 --> D2
+    D5 --> D2
+    D6 --> D2
+    
+    D1 --> E1
+    D2 --> E1
+    D3 --> E1
+    D4 --> E2
+    E5 --> E2
+    E6 --> E2
+    
+    E1 --> F1
+    E2 --> F1
+    E3 --> F1
+    E4 --> F2
+    F5 --> F2
+    F6 --> F2
+    
+    F1 --> G1
+    F2 --> G1
+    F3 --> G1
+    F4 --> G2
+    G5 --> G2
+    G6 --> G2
+    
+    G1 --> H1
+    G2 --> H1
+    G3 --> H1
+    G4 --> H2
+    H5 --> H2
+    H6 --> H2
+    
+    H1 --> I1
+    H2 --> I1
+    H3 --> I1
+    H4 --> I2
+    I5 --> I2
+    I6 --> I2
+    
+    I1 --> J1
+    I2 --> J1
+    I3 --> J1
+    I4 --> J2
+    J5 --> J2
+    J6 --> J2
+    
+    %% Feedback Loops
+    J1 --> B1
+    J2 --> C1
+    J3 --> D1
+    J4 --> E1
+    J5 --> F1
+    J6 --> G1
 ```
 **Tools:** ELK Stack, Wazuh, custom audit scripts
 
