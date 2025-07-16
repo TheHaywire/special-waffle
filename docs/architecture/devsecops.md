@@ -5,27 +5,27 @@
 ## 1. CI/CD Security Checks & Pipeline Automation
 
 **Description:**
-Automate security checks in CI/CD pipelines, including SAST, DAST, dependency scanning, IaC scanning, and supply chain security, to shift security left and ensure secure software delivery.
+Automate security checks in CI CD pipelines, including SAST, DAST, dependency scanning, IaC scanning, and supply chain security, to shift security left and ensure secure software delivery.
 
 **Architecture Diagram:**
 ```mermaid
 flowchart TD
-    A[Developer] -->|Code Commit| B[Source Repo (Git)]
-    B -->|Webhook| C[CI/CD Orchestrator (Jenkins/GitHub Actions)]
-    C -->|Build/Test| D[Build Environment]
-    D -->|SAST/DAST/Dependency Scan| E[Security Tools]
+    A[Developer] -->|Code Commit| B[Source Repo Git]
+    B -->|Webhook| C[CI CD Orchestrator Jenkins GitHub Actions]
+    C -->|Build Test| D[Build Environment]
+    D -->|SAST DAST Dependency Scan| E[Security Tools]
     E -->|Findings| F[Pipeline Gate]
-    F -->|Pass/Fail| G[Deploy to Staging/Prod]
-    E -->|Logs| H[SIEM/Log Management]
+    F -->|Pass Fail| G[Deploy to Staging Prod]
+    E -->|Logs| H[SIEM Log Management]
 ```
 
 **Key Components:**
-- Source Repo: GitHub, GitLab, Bitbucket, etc.
-- CI/CD Orchestrator: Jenkins, GitHub Actions, GitLab CI, CircleCI.
+- Source Repo Git: GitHub, GitLab, Bitbucket, etc.
+- CI CD Orchestrator: Jenkins, GitHub Actions, GitLab CI, CircleCI.
 - Build Environment: Containerized or VM-based build runners.
 - Security Tools: SAST (SonarQube, Semgrep), DAST (OWASP ZAP), Dependency Scanners (OWASP Dependency-Check, Snyk), IaC Scanners (Checkov, tfsec).
-- Pipeline Gate: Enforces pass/fail based on security findings.
-- SIEM/Log Management: Stores scan results and pipeline logs.
+- Pipeline Gate: Enforces pass fail based on security findings.
+- SIEM Log Management: Stores scan results and pipeline logs.
 
 ---
 

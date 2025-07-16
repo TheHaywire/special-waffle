@@ -32,16 +32,16 @@ Uses blockchain to create tamper-proof, distributed logs of security events, acc
 **Architecture Diagram:**
 ```mermaid
 flowchart TD
-    A[Event Source (App, DB, Infra)] --> B[Log Collector]
+    A[Event Source App DB Infra] --> B[Log Collector]
     B -->|Event| C[Blockchain Node]
     C -->|Consensus| D[Blockchain Network]
-    D -->|Immutable Log| E[Auditor/Compliance]
-    D -->|Query| F[SIEM/Analytics]
+    D -->|Immutable Log| E[Auditor Compliance]
+    D -->|Query| F[SIEM Analytics]
 ```
 
 **Key Components:**
 - Log Collector: Gathers events from various sources.
 - Blockchain Node: Writes events to the blockchain (e.g., [Hyperledger Fabric](https://www.hyperledger.org/use/fabric), [Ethereum](https://ethereum.org/)).
 - Blockchain Network: Distributed ledger for consensus and storage.
-- Auditor/Compliance: Reviews immutable logs for investigations and audits.
-- SIEM/Analytics: Queries logs for security analysis. 
+- Auditor Compliance: Reviews immutable logs for investigations and audits.
+- SIEM Analytics: Queries logs for security analysis. 
