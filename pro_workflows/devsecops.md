@@ -6,170 +6,84 @@
 **Workflow:**
 ```mermaid
 flowchart TD
-    %% Development Environment
-    subgraph "Development Phase"
-        A1[Developer IDE - VS Code/IntelliJ]
-        A2[Pre-commit Hooks - Git Hooks]
-        A3[Local Security Scans - IDE Plugins]
-        A4[Code Review - GitHub/GitLab]
-        A5[Branch Protection - Policies/Rules]
+    subgraph DevPhase
+        A1[IDE] --> A2[Pre-commit]
+        A2 --> A3[Local Scan]
+        A3 --> A4[Code Review]
+        A4 --> A5[Branch Protect]
     end
-    
-    %% Source Code Management
-    subgraph "Source Control"
-        B1[Git Repository - GitHub/GitLab]
-        B2[Branch Strategy - GitFlow/Trunk]
-        B3[Pull Request Workflow]
-        B4[Code Review Automation]
-        B5[Merge Protection Rules]
+    subgraph SourceCtrl
+        B1[Repo] --> B2[Branch Strat]
+        B2 --> B3[PR Workflow]
+        B3 --> B4[Review Auto]
+        B4 --> B5[Merge Rules]
     end
-    
-    %% CI/CD Pipeline - Build Phase
-    subgraph "Build Phase"
-        C1[Build Trigger - Webhook/Manual]
-        C2[Environment Setup - Docker/K8s]
-        C3[Dependency Management - npm/pip/maven]
-        C4[Build Process - Compile/Package]
-        C5[Artifact Generation - Images/Archives]
+    subgraph Build
+        C1[Build Trigger] --> C2[Env Setup]
+        C2 --> C3[Deps]
+        C3 --> C4[Build Proc]
+        C4 --> C5[Artifact]
     end
-    
-    %% Security Scanning - SAST
-    subgraph "SAST Scanning"
-        D1[Static Analysis - SonarQube/Semgrep]
-        D2[Secret Detection - TruffleHog/GitGuardian]
-        D3[License Compliance - FOSSA/Black Duck]
-        D4[Code Quality - SonarQube/CodeClimate]
-        D5[Custom Rules - Organization Policies]
+    subgraph SAST
+        D1[Static Analysis] --> D2[Secret Detect]
+        D2 --> D3[License Check]
+        D3 --> D4[Code Quality]
+        D4 --> D5[Custom Rules]
     end
-    
-    %% Security Scanning - SCA
-    subgraph "Software Composition Analysis"
-        E1[Dependency Scanning - Snyk/Dependabot]
-        E2[Vulnerability Assessment - NVD/CVE]
-        E3[License Risk Analysis]
-        E4[SBOM Generation - CycloneDX/SPDX]
-        E5[Supply Chain Security - Sigstore]
+    subgraph SCA
+        E1[Dep Scan] --> E2[Vuln Assess]
+        E2 --> E3[License Risk]
+        E3 --> E4[SBOM]
+        E4 --> E5[Supply Chain]
     end
-    
-    %% Security Scanning - Container
-    subgraph "Container Security"
-        F1[Image Scanning - Trivy/Clair]
-        F2[Base Image Analysis - Distroless/Alpine]
-        F3[Runtime Security - Falco/OPA]
-        F4[Secrets Management - Vault/Secrets Manager]
-        F5[Image Signing - Cosign/Notary]
+    subgraph ContSec
+        F1[Image Scan] --> F2[Base Image]
+        F2 --> F3[Runtime Sec]
+        F3 --> F4[Secrets Mgmt]
+        F4 --> F5[Image Sign]
     end
-    
-    %% Security Scanning - Infrastructure
-    subgraph "Infrastructure as Code"
-        G1[Terraform Security - Checkov/Tfsec]
-        G2[Kubernetes Security - Kubesec/OPA]
-        G3[Cloud Security - AWS Config/Azure Policy]
-        G4[Compliance Scanning - CIS Benchmarks]
-        G5[Cost Optimization - Infracost]
+    subgraph IaCSec
+        G1[Terraform Sec] --> G2[K8s Sec]
+        G2 --> G3[Cloud Sec]
+        G3 --> G4[Compliance]
+        G4 --> G5[Cost Opt]
     end
-    
-    %% Security Scanning - DAST
-    subgraph "Dynamic Application Security"
-        H1[Web App Scanning - OWASP ZAP/Burp]
-        H2[API Security Testing - 42Crunch/Postman]
-        H3[Load Testing - JMeter/K6]
-        H4[Performance Security - Lighthouse]
-        H5[Accessibility Security - axe-core]
+    subgraph DAST
+        H1[Web Scan] --> H2[API Test]
+        H2 --> H3[Load Test]
+        H3 --> H4[Perf Sec]
+        H4 --> H5[Accessibility]
     end
-    
-    %% Decision & Gating
-    subgraph "Security Gates"
-        I1[Risk Assessment - CVSS/Severity]
-        I2[Policy Enforcement - OPA/Gatekeeper]
-        I3[Approval Workflow - Manual/Auto]
-        I4[Compliance Checks - SOX/HIPAA/PCI]
-        I5[Business Impact Analysis]
+    subgraph Gates
+        I1[Risk Assess] --> I2[Policy]
+        I2 --> I3[Approval]
+        I3 --> I4[Compliance]
+        I4 --> I5[Impact]
     end
-    
-    %% Deployment & Runtime
-    subgraph "Deployment & Runtime"
-        J1[Environment Promotion - Dev/Staging/Prod]
-        J2[Blue-Green Deployment - Zero Downtime]
-        J3[Canary Releases - Gradual Rollout]
-        J4[Runtime Monitoring - Prometheus/Grafana]
-        J5[Security Monitoring - SIEM/EDR]
+    subgraph Deploy
+        J1[Promotion] --> J2[Blue-Green]
+        J2 --> J3[Canary]
+        J3 --> J4[Runtime Mon]
+        J4 --> J5[Sec Mon]
     end
-    
-    %% Feedback & Optimization
-    subgraph "Feedback Loop"
-        K1[Security Metrics - Dashboard/Reports]
-        K2[Developer Education - Training/Guides]
-        K3[Process Improvement - Retrospectives]
-        K4[Tool Optimization - Tuning/Configuration]
-        K5[Compliance Reporting - Audit/Evidence]
+    subgraph Feedback
+        K1[Metrics] --> K2[Education]
+        K2 --> K3[Improve]
+        K3 --> K4[Tool Opt]
+        K4 --> K5[Reporting]
     end
-    
-    %% Data Flow Connections
-    A1 --> A2
-    A2 --> A3
-    A3 --> A4
-    A4 --> A5
-    
     A5 --> B1
-    B1 --> B2
-    B2 --> B3
-    B3 --> B4
-    B4 --> B5
-    
     B5 --> C1
-    C1 --> C2
-    C2 --> C3
-    C3 --> C4
-    C4 --> C5
-    
     C5 --> D1
     C5 --> E1
     C5 --> F1
     C5 --> G1
-    
-    D1 --> D2
-    D2 --> D3
-    D3 --> D4
-    D4 --> D5
-    
-    E1 --> E2
-    E2 --> E3
-    E3 --> E4
-    E4 --> E5
-    
-    F1 --> F2
-    F2 --> F3
-    F3 --> F4
-    F4 --> F5
-    
-    G1 --> G2
-    G2 --> G3
-    G3 --> G4
-    G4 --> G5
-    
     D5 --> I1
     E5 --> I1
     F5 --> I1
     G5 --> I1
-    
-    I1 --> I2
-    I2 --> I3
-    I3 --> I4
-    I4 --> I5
-    
     I5 --> J1
-    J1 --> J2
-    J2 --> J3
-    J3 --> J4
-    J4 --> J5
-    
     J5 --> K1
-    K1 --> K2
-    K2 --> K3
-    K3 --> K4
-    K4 --> K5
-    
     %% Feedback Loops
     K2 --> A1
     K3 --> B1
@@ -194,12 +108,12 @@ flowchart TD
 **Workflow:**
 ```mermaid
 flowchart TD
-    A[Source Code/Dependencies] -->|SBOM Generation| B[SBOM Tool (Syft/Trivy)]
-    B -->|SBOM File| C[SBOM Repository]
-    C -->|Validation| D[Policy Engine]
-    D -->|Alerts| E[Security Team]
-    D -->|Pass/Fail| F[CI/CD Pipeline]
-    B -->|Vuln Scan| G[Vulnerability DB (OSV/NVD)]
+    A[Source/Deps] -->|SBOM| B[SBOM Tool]
+    B -->|SBOM File| C[SBOM Repo]
+    C -->|Validate| D[Policy Engine]
+    D -->|Alerts| E[Sec Team]
+    D -->|Pass/Fail| F[CI/CD]
+    B -->|Vuln Scan| G[Vuln DB]
     G -->|Findings| D
 ```
 **Tools:** Syft, Trivy, CycloneDX, OSV, NVD, GitHub Advisory DB
@@ -220,11 +134,11 @@ flowchart TD
 **Workflow:**
 ```mermaid
 flowchart TD
-    A[Cloud/Infra Resources] -->|Monitor| B[Policy Engine (OPA/Cloud Custodian)]
-    B -->|Detect Drift/Violation| C[Automation Orchestrator (Ansible/Lambda)]
-    C -->|Remediation Action| A
-    B -->|Alert| D[Security Team]
-    C -->|Logs| E[SIEM/Log Management]
+    A[Infra Resources] -->|Monitor| B[Policy Engine]
+    B -->|Detect| C[Orchestrator]
+    C -->|Remediate| A
+    B -->|Alert| D[Sec Team]
+    C -->|Logs| E[SIEM]
 ```
 **Tools:** OPA, Cloud Custodian, Ansible, AWS Lambda, SIEM
 

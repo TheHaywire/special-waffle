@@ -6,154 +6,82 @@
 **Workflow:**
 ```mermaid
 flowchart TD
-    %% Employee Population & Segmentation
-    subgraph "Employee Population"
-        A1[Executives - C-Suite/Board Members]
-        A2[IT Staff - Developers/Admins/Support]
-        A3[Finance - Accounting/Payroll/Treasury]
-        A4[HR - Personnel/Recruitment/Benefits]
-        A5[Sales - Customer-facing/Partners]
-        A6[Operations - Manufacturing/Logistics]
+    subgraph EmpPop
+        A1[Execs] --> A2[IT]
+        A2 --> A3[Finance]
+        A3 --> A4[HR]
+        A4 --> A5[Sales]
+        A5 --> A6[Ops]
     end
-    
-    %% Training Content Management
-    subgraph "Training Content Management"
-        B1[Content Creation - Videos/Modules/Quizzes]
-        B2[Content Localization - Languages/Cultures]
-        B3[Content Personalization - Role-based/Department]
-        B4[Content Updates - Regular/Event-driven]
-        B5[Content Delivery - LMS/Email/Web]
-        B6[Content Analytics - Engagement/Completion]
+    subgraph Content
+        B1[Content Create] --> B2[Localization]
+        B2 --> B3[Personalize]
+        B3 --> B4[Update]
+        B4 --> B5[Delivery]
+        B5 --> B6[Analytics]
     end
-    
-    %% Phishing Simulation Engine
-    subgraph "Phishing Simulation Engine"
-        C1[Campaign Design - Templates/Scenarios]
-        C2[Target Selection - Random/Department/Risk-based]
-        C3[Delivery Methods - Email/SMS/Social Media]
-        C4[Real-time Monitoring - Clicks/Reports/Responses]
-        C5[Behavioral Analysis - Patterns/Trends]
-        C6[Risk Scoring - Individual/Department/Organization]
+    subgraph PhishSim
+        C1[Campaign] --> C2[Target]
+        C2 --> C3[Delivery]
+        C3 --> C4[Monitor]
+        C4 --> C5[Behavior]
+        C5 --> C6[Risk Score]
     end
-    
-    %% Security Awareness Training
-    subgraph "Security Awareness Training"
-        D1[Initial Training - Onboarding/Compliance]
-        D2[Regular Training - Annual/Quarterly/Monthly]
-        D3[Just-in-Time Training - Event-driven/Incident-based]
-        D4[Microlearning - Bite-sized/Interactive]
-        D5[Gamification - Points/Badges/Leaderboards]
-        D6[Social Learning - Peer-to-peer/Communities]
+    subgraph Training
+        D1[Initial] --> D2[Regular]
+        D2 --> D3[JIT]
+        D3 --> D4[Micro]
+        D4 --> D5[Gamify]
+        D5 --> D6[Social]
     end
-    
-    %% Assessment & Testing
-    subgraph "Assessment & Testing"
-        E1[Knowledge Assessments - Quizzes/Tests]
-        E2[Behavioral Assessments - Simulations/Scenarios]
-        E3[Compliance Testing - Policy/Regulatory]
-        E4[Skills Gap Analysis - Individual/Team]
-        E5[Performance Metrics - KPIs/Dashboards]
-        E6[Certification Tracking - Completion/Expiration]
+    subgraph Assess
+        E1[Knowledge] --> E2[Behavior]
+        E2 --> E3[Compliance]
+        E3 --> E4[Gap]
+        E4 --> E5[Metrics]
+        E5 --> E6[Cert]
     end
-    
-    %% Communication & Engagement
-    subgraph "Communication & Engagement"
-        F1[Multi-channel Communication - Email/Slack/Teams]
-        F2[Security Champions - Volunteers/Advocates]
-        F3[Security Events - Awareness Month/Workshops]
-        F4[Feedback Collection - Surveys/Interviews]
-        F5[Recognition Programs - Awards/Incentives]
-        F6[Community Building - Forums/Channels]
+    subgraph Comm
+        F1[Multi-channel] --> F2[Champions]
+        F2 --> F3[Events]
+        F3 --> F4[Feedback]
+        F4 --> F5[Recognition]
+        F5 --> F6[Community]
     end
-    
-    %% Incident Response Integration
-    subgraph "Incident Response Integration"
-        G1[Phishing Reporting - Easy/Anonymous]
-        G2[Incident Triage - Automated/Manual]
-        G3[Response Coordination - IT/Security/HR]
-        G4[Lessons Learned - Analysis/Documentation]
-        G5[Process Improvement - Feedback/Updates]
-        G6[Communication - Internal/External]
+    subgraph IRInt
+        G1[Phish Report] --> G2[Triage]
+        G2 --> G3[Coord]
+        G3 --> G4[Lessons]
+        G4 --> G5[Improve]
+        G5 --> G6[Comm]
     end
-    
-    %% Analytics & Reporting
-    subgraph "Analytics & Reporting"
-        H1[Training Analytics - Completion/Engagement]
-        H2[Phishing Analytics - Click Rates/Reporting]
-        H3[Behavioral Analytics - Changes/Improvements]
-        H4[Risk Analytics - Individual/Department/Organization]
-        H5[Compliance Analytics - Regulatory/Audit]
-        H6[ROI Analytics - Cost/Benefit/Impact]
+    subgraph Analytics
+        H1[Train Analytics] --> H2[Phish Analytics]
+        H2 --> H3[Behavior]
+        H3 --> H4[Risk]
+        H4 --> H5[Compliance]
+        H5 --> H6[ROI]
     end
-    
-    %% Integration & Automation
-    subgraph "Integration & Automation"
-        I1[HR Integration - Employee Data/Onboarding]
-        I2[Email Integration - Exchange/Gmail/Outlook]
-        I3[LMS Integration - Learning Management Systems]
-        I4[SIEM Integration - Security Information/Events]
-        I5[Compliance Integration - Audit/Reporting]
-        I6[Communication Integration - Slack/Teams/Email]
+    subgraph Integrate
+        I1[HR Int] --> I2[Email Int]
+        I2 --> I3[LMS Int]
+        I3 --> I4[SIEM Int]
+        I4 --> I5[Comp Int]
+        I5 --> I6[Comm Int]
     end
-    
-    %% Data Flow Connections
-    A1 --> B1
-    A2 --> B1
-    A3 --> B1
-    A4 --> B2
-    A5 --> B2
-    A6 --> B2
-    
-    B1 --> C1
-    B2 --> C1
-    B3 --> C1
-    B4 --> C2
-    B5 --> C2
-    B6 --> C2
-    
-    C1 --> D1
-    C2 --> D1
-    C3 --> D1
-    C4 --> D2
-    C5 --> D2
-    C6 --> D2
-    
-    D1 --> E1
-    D2 --> E1
-    D3 --> E1
-    D4 --> E2
-    D5 --> E2
-    D6 --> E2
-    
-    E1 --> F1
-    E2 --> F1
-    E3 --> F1
-    E4 --> F2
-    E5 --> F2
-    E6 --> F2
-    
-    F1 --> G1
-    F2 --> G1
-    F3 --> G1
-    F4 --> G2
-    F5 --> G2
-    F6 --> G2
-    
-    G1 --> H1
-    G2 --> H1
-    G3 --> H1
-    G4 --> H2
-    G5 --> H2
-    G6 --> H2
-    
-    %% Integration Connections
+    A6 --> B1
+    B6 --> C1
+    C6 --> D1
+    D6 --> E1
+    E6 --> F1
+    F6 --> G1
+    G6 --> H1
     I1 --> A1
     I2 --> C1
     I3 --> B1
     I4 --> G1
     I5 --> E1
     I6 --> F1
-    
     %% Feedback Loops
     H1 --> B1
     H2 --> C1
@@ -180,10 +108,10 @@ flowchart TD
 **Workflow:**
 ```mermaid
 flowchart TD
-    A[Security Event/Trigger] --> B[Awareness Platform]
-    B -->|Deliver| C[Microlearning Module]
-    C -->|Complete| D[Track Progress]
-    D -->|Report| E[Security Team]
+    A[Security Event] --> B[Awareness Platform]
+    B -->|Deliver| C[Microlearning]
+    C -->|Complete| D[Track]
+    D -->|Report| E[Sec Team]
 ```
 **Tools:** KnowBe4, Curricula, Lucy Security, custom LMS
 
@@ -203,10 +131,10 @@ flowchart TD
 **Workflow:**
 ```mermaid
 flowchart TD
-    A[Champion Nomination] --> B[Awareness Platform]
+    A[Nomination] --> B[Awareness Platform]
     B -->|Onboard| C[Champions]
-    C -->|Engage| D[Security Initiatives]
-    D -->|Report| E[Security Team]
+    C -->|Engage| D[Initiatives]
+    D -->|Report| E[Sec Team]
 ```
 **Tools:** KnowBe4, custom scripts, Slack/Teams integrations
 

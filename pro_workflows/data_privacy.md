@@ -6,153 +6,77 @@
 **Workflow:**
 ```mermaid
 flowchart TD
-    %% Data Sources & Storage
-    subgraph "Data Sources & Storage"
-        A1[Structured Data - Databases/SQL]
-        A2[Unstructured Data - Files/Documents]
-        A3[Cloud Storage - S3/Blob/Cloud Storage]
-        A4[Applications - Web Apps/APIs]
-        A5[Email Systems - Exchange/Gmail]
-        A6[Backup Systems - Tape/Cloud Backup]
+    subgraph DataStore
+        A1[Structured Data] --> A2[Unstructured Data]
+        A2 --> A3[Cloud Storage]
+        A3 --> A4[Applications]
+        A4 --> A5[Email]
+        A5 --> A6[Backup]
     end
-    
-    %% Data Discovery & Scanning
-    subgraph "Data Discovery Engine"
-        B1[Automated Scanners - OpenDLP/Sniffles]
-        B2[Content Analysis - ML/NLP Processing]
-        B3[Pattern Recognition - Regex/ML Models]
-        B4[Metadata Extraction - File Properties]
-        B5[Data Lineage - Source/Tracking]
-        B6[Data Mapping - Location/Flow]
+    subgraph Discovery
+        B1[Scanners] --> B2[Content Analysis]
+        B2 --> B3[Pattern Recog]
+        B3 --> B4[Metadata]
+        B4 --> B5[Lineage]
+        B5 --> B6[Mapping]
     end
-    
-    %% Data Classification & Labeling
-    subgraph "Classification Engine"
-        C1[Data Types - PII/PHI/PCI/Confidential]
-        C2[Sensitivity Levels - Public/Internal/Confidential/Restricted]
-        C3[Regulatory Classification - GDPR/HIPAA/SOX/PCI]
-        C4[Business Classification - Customer/Employee/Financial]
-        C5[Retention Classification - Temporary/Permanent]
-        C6[Access Classification - Role-based/Permissions]
+    subgraph Classify
+        C1[Data Types] --> C2[Sensitivity]
+        C2 --> C3[Reg Class]
+        C3 --> C4[Business Class]
+        C4 --> C5[Retention]
+        C5 --> C6[Access Class]
     end
-    
-    %% Privacy Compliance Engine
-    subgraph "Privacy Compliance"
-        D1[GDPR Compliance - Data Subject Rights]
-        D2[HIPAA Compliance - PHI Protection]
-        D3[SOX Compliance - Financial Data]
-        D4[PCI Compliance - Payment Data]
-        D5[Industry Standards - ISO 27001/NIST]
-        D6[Custom Policies - Organization-specific]
+    subgraph Compliance
+        D1[GDPR] --> D2[HIPAA]
+        D2 --> D3[SOX]
+        D3 --> D4[PCI]
+        D4 --> D5[Standards]
+        D5 --> D6[Custom]
     end
-    
-    %% Data Protection & Security
-    subgraph "Data Protection"
-        E1[Encryption - At Rest/In Transit]
-        E2[Access Controls - RBAC/ABAC]
-        E3[Data Masking - PII/PHI Redaction]
-        E4[Tokenization - Sensitive Data Replacement]
-        E5[Data Loss Prevention - DLP Policies]
-        E6[Audit Logging - Access/Changes]
+    subgraph Protect
+        E1[Encryption] --> E2[Access Ctrl]
+        E2 --> E3[Masking]
+        E3 --> E4[Tokenization]
+        E4 --> E5[DLP]
+        E5 --> E6[Audit Log]
     end
-    
-    %% Data Subject Rights Management
-    subgraph "Data Subject Rights"
-        F1[Right to Access - DSAR Processing]
-        F2[Right to Rectification - Data Correction]
-        F3[Right to Erasure - Data Deletion]
-        F4[Right to Portability - Data Export]
-        F5[Right to Object - Processing Restriction]
-        F6[Consent Management - Opt-in/Opt-out]
+    subgraph Rights
+        F1[Access] --> F2[Rectify]
+        F2 --> F3[Erase]
+        F3 --> F4[Portability]
+        F4 --> F5[Object]
+        F5 --> F6[Consent]
     end
-    
-    %% Privacy Operations
-    subgraph "Privacy Operations"
-        G1[Privacy Impact Assessment - PIA/DPIA]
-        G2[Data Processing Agreements - DPA Management]
-        G3[Vendor Management - Third-party Risk]
-        G4[Incident Response - Data Breach Handling]
-        G5[Training & Awareness - Privacy Education]
-        G6[Compliance Reporting - Audit/Evidence]
+    subgraph PrivacyOps
+        G1[PIA] --> G2[DPA]
+        G2 --> G3[Vendor Mgmt]
+        G3 --> G4[IR]
+        G4 --> G5[Training]
+        G5 --> G6[Reporting]
     end
-    
-    %% Automation & Integration
-    subgraph "Automation & Integration"
-        H1[Workflow Automation - n8n/Shuffle]
-        H2[API Integration - REST/GraphQL]
-        H3[Database Integration - Direct/ETL]
-        H4[Cloud Integration - AWS/Azure/GCP]
-        H5[Identity Integration - AD/Azure AD/Okta]
-        H6[Security Integration - SIEM/EDR/DLP]
+    subgraph AutoInt
+        H1[Workflow Auto] --> H2[API Int]
+        H2 --> H3[DB Int]
+        H3 --> H4[Cloud Int]
+        H4 --> H5[ID Int]
+        H5 --> H6[Sec Int]
     end
-    
-    %% Monitoring & Reporting
-    subgraph "Monitoring & Reporting"
-        I1[Privacy Metrics - KPIs/Dashboards]
-        I2[Compliance Monitoring - Real-time/Periodic]
-        I3[Risk Assessment - Automated/Manual]
-        I4[Incident Detection - Anomaly/Pattern]
-        I5[Audit Trail - Complete/Immutable]
-        I6[Executive Reporting - Board/Management]
+    subgraph Monitor
+        I1[Metrics] --> I2[Compliance]
+        I2 --> I3[Risk]
+        I3 --> I4[Incident]
+        I4 --> I5[Audit]
+        I5 --> I6[Exec Report]
     end
-    
-    %% Data Flow Connections
-    A1 --> B1
-    A2 --> B1
-    A3 --> B1
-    A4 --> B2
-    A5 --> B2
-    A6 --> B3
-    
-    B1 --> C1
-    B2 --> C1
-    B3 --> C1
-    B4 --> C2
-    B5 --> C2
-    B6 --> C2
-    
-    C1 --> D1
-    C2 --> D1
-    C3 --> D1
-    C4 --> D2
-    C5 --> D2
-    C6 --> D2
-    
-    D1 --> E1
-    D2 --> E1
-    D3 --> E1
-    D4 --> E2
-    D5 --> E2
-    D6 --> E2
-    
-    E1 --> F1
-    E2 --> F1
-    E3 --> F1
-    E4 --> F2
-    E5 --> F2
-    E6 --> F2
-    
-    F1 --> G1
-    F2 --> G1
-    F3 --> G1
-    F4 --> G2
-    F5 --> G2
-    F6 --> G2
-    
-    G1 --> H1
-    G2 --> H1
-    G3 --> H1
-    G4 --> H2
-    G5 --> H2
-    G6 --> H2
-    
-    H1 --> I1
-    H2 --> I1
-    H3 --> I1
-    H4 --> I2
-    H5 --> I2
-    H6 --> I2
-    
+    A6 --> B1
+    B6 --> C1
+    C6 --> D1
+    D6 --> E1
+    E6 --> F1
+    F6 --> G1
+    G6 --> H1
+    H6 --> I1
     %% Feedback Loops
     I1 --> C1
     I2 --> D1
@@ -179,10 +103,10 @@ flowchart TD
 **Workflow:**
 ```mermaid
 flowchart TD
-    A[DSAR Received] --> B[DSAR Portal/Intake]
-    B -->|Trigger| C[Automated Data Search]
-    C -->|Results| D[Review/Redact]
-    D -->|Fulfill/Respond| E[Data Subject]
+    A[DSAR Received] --> B[DSAR Portal]
+    B -->|Trigger| C[Auto Search]
+    C -->|Results| D[Review]
+    D -->|Fulfill| E[Data Subject]
 ```
 **Tools:** OneTrust, Osano, OpenDLP, custom scripts
 
@@ -202,10 +126,10 @@ flowchart TD
 **Workflow:**
 ```mermaid
 flowchart TD
-    A[Policy Definition] --> B[Policy Engine (OPA/Apache Ranger)]
+    A[Policy Def] --> B[Policy Engine]
     B -->|Enforce| C[Data Access]
     C -->|Monitor| D[Audit Logs]
-    D -->|Alert| E[Privacy/Compliance Team]
+    D -->|Alert| E[Privacy Team]
 ```
 **Tools:** Open Policy Agent, Apache Ranger, DataSunrise, Elastic Security
 

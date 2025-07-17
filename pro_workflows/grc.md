@@ -6,154 +6,82 @@
 **Workflow:**
 ```mermaid
 flowchart TD
-    %% Asset & Data Inventory
-    subgraph "Asset & Data Inventory"
-        A1[IT Assets - Servers/Workstations/Network]
-        A2[Applications - Web Apps/APIs/Databases]
-        A3[Data Assets - PII/PHI/PCI/Confidential]
-        A4[Cloud Resources - AWS/Azure/GCP]
-        A5[Third-party Services - Vendors/Partners]
-        A6[Physical Assets - Facilities/Equipment]
+    subgraph AssetInv
+        A1[IT Assets] --> A2[Apps]
+        A2 --> A3[Data]
+        A3 --> A4[Cloud]
+        A4 --> A5[Third-party]
+        A5 --> A6[Physical]
     end
-    
-    %% Risk Assessment Engine
-    subgraph "Risk Assessment Engine"
-        B1[Threat Modeling - STRIDE/PASTA/Attack Trees]
-        B2[Vulnerability Assessment - Qualys/Tenable/OpenVAS]
-        B3[Business Impact Analysis - Financial/Operational]
-        B4[Likelihood Assessment - Historical/Expert Judgment]
-        B5[Risk Scoring - CVSS/FAIR/Qualitative]
-        B6[Risk Categorization - Strategic/Operational/Financial]
+    subgraph RiskAssess
+        B1[Threat Model] --> B2[Vuln Assess]
+        B2 --> B3[Impact]
+        B3 --> B4[Likelihood]
+        B4 --> B5[Risk Score]
+        B5 --> B6[Risk Cat]
     end
-    
-    %% Compliance Framework Management
-    subgraph "Compliance Frameworks"
-        C1[Regulatory Compliance - SOX/HIPAA/PCI/GDPR]
-        C2[Industry Standards - ISO 27001/NIST/CIS]
-        C3[Internal Policies - Organization-specific]
-        C4[Contractual Requirements - Customer/Vendor]
-        C5[Geographic Requirements - Regional Laws]
-        C6[Industry-specific - Healthcare/Finance/Government]
+    subgraph Compliance
+        C1[Reg Compliance] --> C2[Standards]
+        C2 --> C3[Internal Policy]
+        C3 --> C4[Contract]
+        C4 --> C5[Geo Req]
+        C5 --> C6[Industry]
     end
-    
-    %% Policy Management System
-    subgraph "Policy Management"
-        D1[Policy Creation - Templates/Standards]
-        D2[Policy Distribution - Training/Awareness]
-        D3[Policy Enforcement - Monitoring/Controls]
-        D4[Policy Review - Periodic/Triggered]
-        D5[Policy Updates - Change Management]
-        D6[Policy Attestation - Employee/Contractor]
+    subgraph PolicyMgmt
+        D1[Policy Create] --> D2[Policy Dist]
+        D2 --> D3[Policy Enforce]
+        D3 --> D4[Policy Review]
+        D4 --> D5[Policy Update]
+        D5 --> D6[Attestation]
     end
-    
-    %% Control Framework
-    subgraph "Control Framework"
-        E1[Preventive Controls - Access/Encryption/Firewall]
-        E2[Detective Controls - Monitoring/Logging/Audit]
-        E3[Corrective Controls - Incident Response/Recovery]
-        E4[Compensating Controls - Alternative Measures]
-        E5[Control Testing - Automated/Manual]
-        E6[Control Effectiveness - Metrics/Reporting]
+    subgraph Control
+        E1[Preventive] --> E2[Detective]
+        E2 --> E3[Corrective]
+        E3 --> E4[Compensating]
+        E4 --> E5[Test]
+        E5 --> E6[Effectiveness]
     end
-    
-    %% Risk Register & Management
-    subgraph "Risk Register & Management"
-        F1[Risk Register - Centralized Database]
-        F2[Risk Ownership - Business/IT/Security]
-        F3[Risk Treatment - Accept/Transfer/Mitigate/Avoid]
-        F4[Risk Monitoring - Continuous/Periodic]
-        F5[Risk Reporting - Executive/Board/Stakeholders]
-        F6[Risk Review - Quarterly/Annual]
+    subgraph RiskReg
+        F1[Risk Reg] --> F2[Ownership]
+        F2 --> F3[Treatment]
+        F3 --> F4[Monitoring]
+        F4 --> F5[Reporting]
+        F5 --> F6[Review]
     end
-    
-    %% Audit & Assurance
-    subgraph "Audit & Assurance"
-        G1[Internal Audits - Self-assessment/Independent]
-        G2[External Audits - Third-party/Certification]
-        G3[Continuous Monitoring - Real-time/Periodic]
-        G4[Evidence Collection - Automated/Manual]
-        G5[Audit Trail - Complete/Immutable]
-        G6[Remediation Tracking - Issues/Actions]
+    subgraph Audit
+        G1[Internal Audit] --> G2[External Audit]
+        G2 --> G3[Monitoring]
+        G3 --> G4[Evidence]
+        G4 --> G5[Audit Trail]
+        G5 --> G6[Remediation]
     end
-    
-    %% Reporting & Analytics
-    subgraph "Reporting & Analytics"
-        H1[Executive Dashboards - KPIs/Metrics]
-        H2[Compliance Reports - Regulatory/Internal]
-        H3[Risk Reports - Heat Maps/Trends]
-        H4[Performance Metrics - Efficiency/Effectiveness]
-        H5[Trend Analysis - Historical/Predictive]
-        H6[Stakeholder Communication - Board/Management]
+    subgraph Reporting
+        H1[Dashboards] --> H2[Comp Reports]
+        H2 --> H3[Risk Reports]
+        H3 --> H4[Perf Metrics]
+        H4 --> H5[Trends]
+        H5 --> H6[Stakeholder]
     end
-    
-    %% Integration & Automation
-    subgraph "Integration & Automation"
-        I1[Security Tools - SIEM/EDR/Vulnerability Scanners]
-        I2[IT Tools - CMDB/Asset Management]
-        I3[Business Tools - ERP/CRM/HR Systems]
-        I4[Cloud Tools - AWS/Azure/GCP APIs]
-        I5[Third-party Tools - Vendor APIs]
-        I6[Custom Integration - APIs/Scripts]
+    subgraph Integrate
+        I1[Sec Tools] --> I2[IT Tools]
+        I2 --> I3[Biz Tools]
+        I3 --> I4[Cloud Tools]
+        I4 --> I5[Third-party]
+        I5 --> I6[Custom]
     end
-    
-    %% Data Flow Connections
-    A1 --> B1
-    A2 --> B1
-    A3 --> B1
-    A4 --> B2
-    A5 --> B2
-    A6 --> B3
-    
-    B1 --> C1
-    B2 --> C1
-    B3 --> C1
-    B4 --> C2
-    B5 --> C2
-    B6 --> C2
-    
-    C1 --> D1
-    C2 --> D1
-    C3 --> D1
-    C4 --> D2
-    C5 --> D2
-    C6 --> D2
-    
-    D1 --> E1
-    D2 --> E1
-    D3 --> E1
-    D4 --> E2
-    D5 --> E2
-    D6 --> E2
-    
-    E1 --> F1
-    E2 --> F1
-    E3 --> F1
-    E4 --> F2
-    E5 --> F2
-    E6 --> F2
-    
-    F1 --> G1
-    F2 --> G1
-    F3 --> G1
-    F4 --> G2
-    F5 --> G2
-    F6 --> G2
-    
-    G1 --> H1
-    G2 --> H1
-    G3 --> H1
-    G4 --> H2
-    G5 --> H2
-    G6 --> H2
-    
-    %% Integration Connections
+    A6 --> B1
+    B6 --> C1
+    C6 --> D1
+    D6 --> E1
+    E6 --> F1
+    F6 --> G1
+    G6 --> H1
     I1 --> B1
     I2 --> A1
     I3 --> C1
     I4 --> A4
     I5 --> A5
     I6 --> H1
-    
     %% Feedback Loops
     H1 --> D1
     H2 --> E1
@@ -180,10 +108,10 @@ flowchart TD
 **Workflow:**
 ```mermaid
 flowchart TD
-    A[Policy Draft] --> B[GRC Platform (Eramba/DocRead)]
+    A[Policy Draft] --> B[GRC Platform]
     B -->|Distribute| C[Employees]
-    C -->|Attest| D[Attestation Records]
-    D -->|Report| E[GRC/Compliance Team]
+    C -->|Attest| D[Attestation]
+    D -->|Report| E[GRC Team]
 ```
 **Tools:** Eramba, DocRead, GRC Toolbox, custom scripts
 
@@ -203,9 +131,9 @@ flowchart TD
 **Workflow:**
 ```mermaid
 flowchart TD
-    A[Compliance Controls] --> B[Monitoring Tool (OpenSCAP/Auditd)]
-    B -->|Scan| C[Compliance Dashboard]
-    C -->|Alert| D[GRC/Compliance Team]
+    A[Controls] --> B[Monitor Tool]
+    B -->|Scan| C[Dashboard]
+    C -->|Alert| D[GRC Team]
 ```
 **Tools:** OpenSCAP, Auditd, Eramba, GRC Toolbox
 

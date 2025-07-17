@@ -7,136 +7,61 @@
 ```mermaid
 flowchart TD
     %% Multi-Cloud Infrastructure
-    subgraph "Cloud Infrastructure"
-        A1[AWS - EC2/S3/IAM/Lambda]
-        A2[Azure - VMs/Blob/AD/Function Apps]
-        A3[GCP - Compute/Storage/IAM/Cloud Functions]
-        A4[Kubernetes - EKS/AKS/GKE]
-        A5[Serverless - Lambda/Azure Functions/Cloud Functions]
-        A6[Containers - ECS/ACR/GCR]
+    subgraph CloudInfra
+        A1[AWS] --> A2[Azure]
+        A2 --> A3[GCP]
+        A3 --> A4[Kubernetes]
+        A4 --> A5[Serverless]
+        A5 --> A6[Containers]
     end
-    
-    %% Cloud Security Scanning
-    subgraph "Security Scanning Layer"
-        B1[CSPM Tools - Prowler/Cloud Custodian]
-        B2[Compliance Scanners - AWS Config/Azure Policy]
-        B3[Vulnerability Scanners - Qualys/Tenable]
-        B4[Container Security - Trivy/Clair]
-        B5[Secrets Scanning - TruffleHog/GitGuardian]
-        B6[Network Security - Security Groups/NSGs]
+    subgraph ScanLayer
+        B1[CSPM Tools] --> B2[Compliance Scan]
+        B2 --> B3[Vuln Scan]
+        B3 --> B4[Container Sec]
+        B4 --> B5[Secrets Scan]
+        B5 --> B6[Net Sec]
     end
-    
-    %% Policy & Compliance Engine
-    subgraph "Policy Engine"
-        C1[Compliance Frameworks - CIS/SOC2/HIPAA]
-        C2[Custom Policies - Organization Rules]
-        C3[Risk Scoring - Severity/Impact]
-        C4[Policy Enforcement - OPA/Gatekeeper]
-        C5[Compliance Reporting - Audit/Evidence]
-        C6[Regulatory Mapping - SOX/HIPAA/PCI]
+    subgraph Policy
+        C1[Compliance] --> C2[Custom Policy]
+        C2 --> C3[Risk Score]
+        C3 --> C4[Enforcement]
+        C4 --> C5[Reporting]
+        C5 --> C6[Reg Mapping]
     end
-    
-    %% Configuration Management
-    subgraph "Configuration Management"
-        D1[Infrastructure as Code - Terraform/CloudFormation]
-        D2[Configuration Drift Detection]
-        D3[Baseline Management - Golden Images]
-        D4[Change Management - Approval Workflows]
-        D5[Version Control - Git/Artifactory]
-        D6[Deployment Automation - CI/CD]
+    subgraph ConfigMgmt
+        D1[IaC] --> D2[Drift Detect]
+        D2 --> D3[Baseline]
+        D3 --> D4[Change Mgmt]
+        D4 --> D5[Version Ctrl]
+        D5 --> D6[Deploy Auto]
     end
-    
-    %% Automation & Remediation
-    subgraph "Automation Engine"
-        E1[Serverless Functions - Lambda/Azure Functions]
-        E2[Orchestration - Ansible/Terraform]
-        E3[Event-Driven Automation - CloudWatch/Event Grid]
-        E4[API Integration - REST/GraphQL]
-        E5[Custom Scripts - Python/Bash]
-        E6[Third-party Tools - PagerDuty/Jira]
+    subgraph Auto
+        E1[Serverless] --> E2[Orchestration]
+        E2 --> E3[Event Auto]
+        E3 --> E4[API Int]
+        E4 --> E5[Custom Scripts]
+        E5 --> E6[Third-party]
     end
-    
-    %% Monitoring & Alerting
-    subgraph "Monitoring & Alerting"
-        F1[CloudWatch/Azure Monitor/Stackdriver]
-        F2[SIEM Integration - Splunk/QRadar]
-        F3[Alert Management - PagerDuty/OpsGenie]
-        F4[Dashboard - Grafana/CloudWatch]
-        F5[Log Aggregation - ELK Stack/Fluentd]
-        F6[Performance Monitoring - APM/Tracing]
+    subgraph MonAlert
+        F1[Cloud Mon] --> F2[SIEM]
+        F2 --> F3[Alert Mgmt]
+        F3 --> F4[Dashboard]
+        F4 --> F5[Log Agg]
+        F5 --> F6[Perf Mon]
     end
-    
-    %% Security Operations
-    subgraph "Security Operations"
-        G1[Incident Response - SOAR/Playbooks]
-        G2[Threat Detection - GuardDuty/Sentinel]
-        G3[Forensics - CloudTrail/Azure Monitor]
-        G4[Compliance Reporting - Automated/Manual]
-        G5[Security Metrics - KPIs/Dashboards]
-        G6[Team Notifications - Slack/Email/Teams]
+    subgraph SecOps
+        G1[IR] --> G2[Threat Detect]
+        G2 --> G3[Forensics]
+        G3 --> G4[Compliance]
+        G4 --> G5[Metrics]
+        G5 --> G6[Notify]
     end
-    
-    %% Data Flow Connections
-    A1 --> B1
-    A2 --> B1
-    A3 --> B1
-    A4 --> B2
-    A5 --> B3
-    A6 --> B4
-    
-    B1 --> C1
-    B2 --> C1
-    B3 --> C1
-    B4 --> C1
-    B5 --> C1
+    A6 --> B1
     B6 --> C1
-    
-    C1 --> C2
-    C2 --> C3
-    C3 --> C4
-    C4 --> C5
-    C5 --> C6
-    
     C6 --> D1
-    C6 --> D2
-    C6 --> D3
-    C6 --> D4
-    C6 --> D5
-    C6 --> D6
-    
-    D1 --> E1
-    D2 --> E2
-    D3 --> E3
-    D4 --> E4
-    D5 --> E5
-    D6 --> E6
-    
-    E1 --> F1
-    E2 --> F1
-    E3 --> F2
-    E4 --> F3
-    E5 --> F4
-    E6 --> F5
-    
-    F1 --> G1
-    F2 --> G1
-    F3 --> G2
-    F4 --> G3
-    F5 --> G4
-    F6 --> G5
-    
-    G1 --> G6
-    G2 --> G6
-    G3 --> G6
-    G4 --> G6
-    G5 --> G6
-    
-    %% Feedback Loops
-    G1 --> C1
-    G2 --> C1
-    G3 --> C1
-    G4 --> C1
-    G5 --> C1
+    D6 --> E1
+    E6 --> F1
+    F6 --> G1
     G6 --> C1
 ```
 **Tools:** Prowler, Cloud Custodian, Steampipe, AWS Config, Lambda, Ansible
@@ -157,11 +82,11 @@ flowchart TD
 **Workflow:**
 ```mermaid
 flowchart TD
-    A[Cloud Alert (SIEM/CSPM)] --> B[SOAR/Automation]
-    B -->|Enrich| C[Asset/Identity Context]
-    C -->|Playbook| D[Automated Response]
+    A[Cloud Alert] --> B[SOAR Automation]
+    B -->|Enrich| C[Context]
+    C -->|Playbook| D[Auto Response]
     D -->|Escalate| E[Human Review]
-    D -->|Remediate| F[Auto-Document]
+    D -->|Remediate| F[Documentation]
 ```
 **Tools:** Shuffle, StackStorm, AWS Lambda, Azure Logic Apps, TheHive
 
@@ -181,9 +106,9 @@ flowchart TD
 **Workflow:**
 ```mermaid
 flowchart TD
-    A[Cloud IAM Data] -->|Analyze| B[Policy Engine (Steampipe/Cloud Custodian)]
-    B -->|Findings| C[Automation (Lambda/Ansible)]
-    C -->|Remediate| D[Cloud IAM]
+    A[IAM Data] -->|Analyze| B[Policy Engine]
+    B -->|Findings| C[Automation]
+    C -->|Remediate| D[IAM]
     B -->|Alert| E[Security Team]
 ```
 **Tools:** Steampipe, Cloud Custodian, AWS IAM Access Analyzer, Lambda
